@@ -10,6 +10,7 @@ mongoClient.connect();
 
 const db = mongoClient.db("shirtShop");
 const collectionShirts = db.collection("shirts");
+//const collectionUser = db.collection("user");
 //const collectionWisdom = db.collection("wisdom");
 
 app.use(express.json());
@@ -48,6 +49,34 @@ app.post("/shirts", async (request, response) => {
   console.log("You added an item to your shirts-collection");
 
   await collectionShirts.insertOne(shirtPic);
+  response.status(200).end();
+});
+
+app.delete("/shirts/:shirtId", async (request, response) => {
+  const selectedShirt = request.params.shirtId;
+  console.log(selectedShirt);
+
+  const documentCount = await collectionShirts.count({ _id: selectedShirt });
+  const shirtExists = documentCount === 1;
+
+  if (shirtExists) {
+    await collectionShirts.deleteOne({ _id: selectedShirt });
+    response.sendStatus(200);
+  } else {
+    response.sendStatus(404);
+  }
+});
+
+app.patch("/shirts/:shirtId", async (request, response) => {
+  const selectedShirt = request.params.shirtId;
+  const requestBody = request.body;
+
+  //We made our OWN ID
+  await collectionShirts.updateOne(
+    { _id: selectedShirt },
+    { $set: requestBody }
+  );
+  //await collectionShirts.replaceOne({ _id: theSelectedDogId }, requestBody);
   response.status(200).end();
 });
 

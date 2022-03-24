@@ -1,0 +1,54 @@
+#shop {
+  background-color: #282c34;
+}
+/* #text1 {
+    text-align: center;
+} */
+h1 {
+  color: hotpink;
+  margin-right: 25vw;
+}
+#intro {
+  font-size: 1.5vw;
+  color: ivory;
+  margin-right: 36vw;
+  text-align: justify;
+  margin-bottom: 10vh;
+}
+h2 {
+  color: rgb(49, 208, 219);
+}
+#chose,
+#wisdl {
+  font-size: 1.32vw;
+  color: ivory;
+  margin-top: -2vh;
+}
+#intro,
+h2,
+#chose,
+#wisdl {
+  margin-left: 8.5vw;
+}
+h2,
+#chose,
+#wisdl {
+  text-align: left;
+}
+#photowrapper {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  margin-left: 5vw;
+  margin-right: 3vw;
+}
+/* .styleAlter {
+  display: flex;
+  flex-direction: column;
+} */
+/* .sizeButt {
+    width: 3vw;
+} */
+/* .styleText {
+    text-align: center;
+} */

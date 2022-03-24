@@ -7,5 +7,17 @@ POST http://localhost:7967/shirts/
 Content-Type: application/json
 
 {
-    "_id": "lightpink"
+    "_id": "twoShirts",
+    "url": "https://unsplash.com/photos/JskqEILt-ds"
+}
+
+###Deleting certain doggo
+DELETE http://localhost:7967/shirts/darkpurple
+
+###
+PATCH http://localhost:7967/shirts/green
+Content-Type: application/json
+
+{
+    "url": "https://unsplash.com/photos/7cERndkOyDw"
 }
