@@ -9,9 +9,9 @@ const mongoClient = new mongodb.MongoClient("mongodb://localhost:27017");
 mongoClient.connect();
 
 const db = mongoClient.db("shirtShop");
-const collectionShirts = db.collection("shirts");
-//const collectionUser = db.collection("user");
-//const collectionWisdom = db.collection("wisdom");
+const collectionShirts = db.collection("products");
+const collectionCart = db.collection("cart");
+const collectionWisdom = db.collection("orders");
 
 app.use(express.json());
 app.use(
@@ -33,33 +33,33 @@ app.use(requestLogger);
 
 const database = [];
 
-app.get("/shirts", async (request, response) => {
+app.get("/products", async (request, response) => {
   const query = request.query;
 
   console.log("You got what you asked for!");
   let filter = {};
 
-  const shirts = await collectionShirts.find(filter).toArray();
-  response.json(shirts);
+  const cart = await collectionShirts.find(filter).toArray();
+  response.json(cart);
 });
 
-app.post("/shirts", async (request, response) => {
+app.post("/products", async (request, response) => {
   const shirtPic = request.body;
 
-  console.log("You added an item to your shirts-collection");
+  console.log("You added an item to your cart-collection");
 
   await collectionShirts.insertOne(shirtPic);
   response.status(200).end();
 });
 
-app.delete("/shirts/:shirtId", async (request, response) => {
-  const selectedShirt = request.params.shirtId;
+app.delete("/products/:productsId", async (request, response) => {
+  const selectedShirt = request.params.productsId;
   console.log(selectedShirt);
 
   const documentCount = await collectionShirts.count({ _id: selectedShirt });
-  const shirtExists = documentCount === 1;
+  const cartExists = documentCount === 1;
 
-  if (shirtExists) {
+  if (cartExists) {
     await collectionShirts.deleteOne({ _id: selectedShirt });
     response.sendStatus(200);
   } else {
@@ -67,8 +67,8 @@ app.delete("/shirts/:shirtId", async (request, response) => {
   }
 });
 
-app.patch("/shirts/:shirtId", async (request, response) => {
-  const selectedShirt = request.params.shirtId;
+app.patch("/products/:productsId", async (request, response) => {
+  const selectedShirt = request.params.cartId;
   const requestBody = request.body;
 
   //We made our OWN ID

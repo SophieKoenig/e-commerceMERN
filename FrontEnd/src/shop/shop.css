@@ -1,54 +1,43 @@
-#shop {
-  background-color: #282c34;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-/* #text1 {
-    text-align: center;
-} */
+h1,
+h2,
+h3 {
+  margin: 0.5rem o;
+}
 h1 {
-  color: hotpink;
-  margin-right: 25vw;
-}
-#intro {
-  font-size: 1.5vw;
-  color: ivory;
-  margin-right: 36vw;
-  text-align: justify;
-  margin-bottom: 10vh;
+  font-size: 1.5rem;
 }
 h2 {
-  color: rgb(49, 208, 219);
+  font-size: 1.2rem;
 }
-#chose,
-#wisdl {
-  font-size: 1.32vw;
-  color: ivory;
-  margin-top: -2vh;
+h3 {
+  font-size: 1rem;
 }
-#intro,
-h2,
-#chose,
-#wisdl {
-  margin-left: 8.5vw;
+a {
+  text-decoration: none;
 }
-h2,
-#chose,
-#wisdl {
-  text-align: left;
-}
-#photowrapper {
+
+.row {
   display: flex;
-  flex-direction: row;
-  /* justify-content: center; */
-  margin-left: 5vw;
-  margin-right: 3vw;
+  justify-content: space-between;
 }
-/* .styleAlter {
-  display: flex;
-  flex-direction: column;
-} */
-/* .sizeButt {
-    width: 3vw;
-} */
-/* .styleText {
-    text-align: center;
-} */
+.col-1 {
+  flex: 1;
+}
+.col-2 {
+  flex: 2;
+}
+.block {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.row.center {
+  align-items: center;
+}
+img.small {
+  max-height: 8rem;
+}

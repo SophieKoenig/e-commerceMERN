@@ -1,9 +1,9 @@
 ###Getting shirts
-GET http://localhost:7967/shirts/
+GET http://localhost:7967/products/
 Content-Type: application/json
 
 ###Adding a shirt
-POST http://localhost:7967/shirts/
+POST http://localhost:7967/
 Content-Type: application/json
 
 {
@@ -11,11 +11,11 @@ Content-Type: application/json
     "url": "https://unsplash.com/photos/JskqEILt-ds"
 }
 
-###Deleting certain doggo
-DELETE http://localhost:7967/shirts/darkpurple
+###Deleting certain product
+DELETE http://localhost:7967/
 
 ###
-PATCH http://localhost:7967/shirts/green
+PATCH http://localhost:7967/
 Content-Type: application/json
 
 {
