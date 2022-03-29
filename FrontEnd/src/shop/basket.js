@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Basket = (props) => {
   const { cartItems, onAdd, onRemove } = props;
@@ -22,7 +23,8 @@ const Basket = (props) => {
           </div>
         </div>
       ))}
-       <button>Go To Checkout</button>
+      {/* <a href="./checkout"> <button>Go To Checkout</button></a> */}
+      <Link to={`/checkout`} state={{cartItems:cartItems}}> <button>Go To Checkout</button></Link>
     </aside>
   );
 };

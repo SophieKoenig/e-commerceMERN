@@ -4,9 +4,9 @@ import LandingPage from "./landingPage.js";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Orders from "../orders/orders";
-import Card from "../card/card";
 import Navbar from "../navigation/navbar";
 import Basket from "../shop/basket";
+import CheckoutPage from "../checkout/checkout";
 
 const App = () => {
   const [products, setShirts] = useState([]);
@@ -31,7 +31,6 @@ const App = () => {
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x._id === product._id);
     if (exist) {
-      console.log("dush");
       setCartItems(
         cartItems.map((x) =>
           x._id === product._id ? { ...exist, qty: exist.qty + 1 } : x
@@ -39,7 +38,6 @@ const App = () => {
       );
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
-      console.log("Hallo");
     }
   };
 
@@ -56,6 +54,11 @@ const App = () => {
     }
   };
 
+  //
+  const onOrder = () => {
+
+  }
+
   return (
     <div className="App">
       <Router>
@@ -68,13 +71,28 @@ const App = () => {
               <>
                 <div className="row">
                   <Shop onAdd={onAdd} products={products} />
-                  <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
+                  <Basket
+                    onAdd={onAdd}
+                    onRemove={onRemove}
+                    cartItems={cartItems}
+                  />
                 </div>
               </>
             }
           ></Route>
           <Route path="/orders" element={<Orders />}></Route>
-          <Route path="/card" element={<Card />}></Route>
+          <Route 
+            path="/checkout"
+            element={
+              <>
+                <CheckoutPage
+                  state={{ cartItems: "cartItems"}}
+                  cartItems={cartItems}
+                  onOrder={onOrder}
+                />
+              </>
+            }
+            ></Route>
         </Routes>
       </Router>
     </div>
