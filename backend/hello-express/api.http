@@ -15,9 +15,9 @@ Content-Type: application/json
 DELETE http://localhost:7967/
 
 ###
-PATCH http://localhost:7967/
+PATCH http://localhost:7967/orders/Anton
 Content-Type: application/json
 
 {
-    "url": "https://unsplash.com/photos/7cERndkOyDw"
+    "name":"Anton2"
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 const CheckoutPage = (props) => {
-  //   const { cartItems, onOrder } = props;
+  const { onOrder } = props;
   const location = useLocation();
   const { cartItems } = location.state;
 
@@ -19,7 +19,7 @@ const CheckoutPage = (props) => {
         </div>
       ))}
       <a href="./orders">
-        <button>Place the Order</button>
+        <button onClick={onOrder}>Place the Order</button>
       </a>
     </div>
   );
