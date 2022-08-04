@@ -79,6 +79,13 @@ app.patch("/orders/:name", async (request, response) => {
   response.status(200).end();
 });
 
+app.delete("/orders/:name", async (request, response) => {
+  const selectedOrder = request.params.name;
+
+  await collectionOrders.deleteOne({ name: selectedOrder });
+  response.sendStatus(200);
+});
+
 // app.patch("/orders/:ordersId", async (request, response) => {
 //   const selectedShirt = request.params.ordersId;
 //   const requestBody = request.body;

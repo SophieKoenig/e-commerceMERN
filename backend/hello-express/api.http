@@ -1,5 +1,5 @@
 ###Getting shirts
-GET http://localhost:7967/products/
+GET http://localhost:7967/orders/
 Content-Type: application/json
 
 ###Adding a shirt
@@ -12,10 +12,10 @@ Content-Type: application/json
 }
 
 ###Deleting certain product
-DELETE http://localhost:7967/
+DELETE http://localhost:7967/orders/sophie666
 
 ###
-PATCH http://localhost:7967/orders/Anton
+PATCH http://localhost:7967/orders/sophie999
 Content-Type: application/json
 
 {

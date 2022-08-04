@@ -1,7 +1,7 @@
 import React from "react";
 
 const Staff = (props) => {
-  const { orders, updateOrders } = props;
+  const { orders, updateOrders, deleteOrder } = props;
   return (
     <aside className="block col-1">
       <h1>Staff Side</h1>
@@ -13,7 +13,7 @@ const Staff = (props) => {
               <button onClick={updateOrders} value={order.name}>
                 Done
               </button>
-              <button>
+              <button onClick={deleteOrder} value={order.name}>
                 Delete
               </button>
             </div>

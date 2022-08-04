@@ -66,7 +66,7 @@ const App = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "sophie333",
+        name: "sophie999",
         orders: cartItems,
       }),
     }).then(() => {
@@ -104,6 +104,17 @@ const App = () => {
     });
   };
 
+  const deleteOrder = async (event) => {
+    fetch(`http://localhost:7967/orders/${event.target.value}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      alert("The order has been deleted");
+    });
+  };
+
   return (
     <div className="App">
       <Router>
@@ -131,7 +142,11 @@ const App = () => {
               <>
                 <div className="row">
                   <Orders fetchOrders={fetchOrders} orders={orders} />
-                  <Staff updateOrders={updateOrders} orders={orders} />
+                  <Staff
+                    updateOrders={updateOrders}
+                    deleteOrder={deleteOrder}
+                    orders={orders}
+                  />
                 </div>
               </>
             }
