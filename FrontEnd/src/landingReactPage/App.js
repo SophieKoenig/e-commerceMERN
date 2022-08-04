@@ -66,7 +66,7 @@ const App = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Sophie",
+        name: "sophie333",
         orders: cartItems,
       }),
     }).then(() => {

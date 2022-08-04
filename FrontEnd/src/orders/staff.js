@@ -13,6 +13,9 @@ const Staff = (props) => {
               <button onClick={updateOrders} value={order.name}>
                 Done
               </button>
+              <button>
+                Delete
+              </button>
             </div>
           </div>
         ))}
